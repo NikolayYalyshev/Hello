@@ -4,28 +4,29 @@ import java.util.Scanner;
 
 public class Task12 {
 	public static void main(String[] args) {
-		int a, b, f, z, v;
-		double c, d, e, x, n;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Введите число первоклассников:");
-		a = scanner.nextInt();
-		b = a;
-	    c = 0.2;
-		d = 0.9;
-		f = b + b;
-		e = (c * a) / d;
-		System.out.println("Если в школе " + a + " первокласников, то " +
-				"необходимо "+ f + " пирожков и " + Math.ceil(e) + " упаковок молока купить");
-		z = (b + b)/100*60;
-		x = ((c * a) / d)/100*60;
-		System.out.println("Если в школе " + a + " , из них 60% первокласников, то " +
-				"необходимо "+ z + " пирожков и " + Math.ceil(x) + " упаковок" +
-				" молока купить");
-		v = (b + b)/100;
-		n = ((c * a) / d)/100;
-		System.out.println("Если в школе " + a + " , из них 1% " +
-				"первокласников, то " +
-				"необходимо "+ v + " пирожков и " + Math.ceil(n) + " упаковок" +
-				" молока купить");
+		int countStudents = scanner.nextInt();
+		countFood(100, countStudents);
+		countFood(60, countStudents);
+		countFood(1, countStudents);
+	}
+	private static void countFood(int dryshchRate, int studentsCount) {
+		if (dryshchRate < 0 || dryshchRate > 100) {
+			System.out.println("Неверное значение dryshchRate");
+			return;
+		}
+		int dryshchCount =
+				(int) Math.round(studentsCount * dryshchRate / 100.0);
+		int normalCount = studentsCount - dryshchCount;
+		int cakeCount = normalCount + dryshchCount * 2;
+		double milkLiters = dryshchCount * 0.2;
+		int milkPackageCount = (int) Math.ceil(milkLiters / 0.9);
+		System.out.println(
+				"Если в школе " + studentsCount + " первоклассников , из них " + dryshchRate +
+						"%" + " у которых вес меньше 30 кг, то " +
+						"необходимо " + cakeCount + " пирожков и " +
+						milkPackageCount + " упаковок" + " молока купить");
 	}
 }
+
