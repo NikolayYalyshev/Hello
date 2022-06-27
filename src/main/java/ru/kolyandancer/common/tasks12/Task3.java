@@ -10,6 +10,5 @@ public class Task3 {
 		n = in.nextFloat();
 		int a = Math.round(n);
 		System.out.println("Результат округления числа " + n + " равняется " + a);
-		System.out.println("Результат округления числа " + n + " равняется " + Math.round(n)); // Одинаковое выражение
 	}
 }

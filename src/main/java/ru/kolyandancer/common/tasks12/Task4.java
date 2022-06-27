@@ -7,6 +7,7 @@ public class Task4 {
 		System.out.print(hello);
 		System.out.print('\u0020'); //u0020 - юникод пробельного символа!
 		System.out.println(world);
-		System.out.println(hello+'\u0020'+world); // вариант вывода в консоль
+		System.out.println(
+				hello + '\u0020' + world); // вариант вывода в консоль
 	}
 }
